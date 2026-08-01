@@ -28,7 +28,7 @@ pair adds a second tree.
 ### `empty.json`
 
 The minimal valid export: a root task with only `version`, `title`, and
-`status`. Demonstrates rule 7 — a root task with no `subtasks` is a valid
+`status`. Demonstrates rule 8 — a root task with no `subtasks` is a valid
 export whether it stands for an empty export or a single task — and that
 the root needs no `id`.
 
