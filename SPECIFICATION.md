@@ -117,6 +117,18 @@ knowing one.
    are a use case, not the norm: a tool that receives a graph whose
    `metadata` points at files it was not given may discard those
    references — no tool is required to handle attachments.
+9. **Field names and metadata keys** — the model's fields are the fixed
+   words in the Fields chapter: single lowercase English words, never
+   renamed or translated. Reading and writing are asymmetric:
+   `metadata` is read leniently — a document is never invalid for using
+   any keys, casing, or language, and readers must accept it all — but
+   written strictly: keys a tool writes must match `^[a-z0-9_]{3,}$`
+   (lowercase letters, digits, and underscores, at least three
+   characters; no dots, dashes, camelCase, or other scripts). The
+   recommended keys in the Metadata chapter follow this; tool-specific
+   keys namespace by tool name — as a nested object under the tool's
+   key (`linear`, `notion`) or as an underscore-prefixed key
+   (`linear_cycle_id`) — never as dotted namespaces (`linear.cycleId`).
 
 ## Metadata
 
@@ -127,7 +139,7 @@ company-specific namespace. Otherwise every tool spells the same thing
 differently (`dueDate`, `due_date`, `dd`, `fälligAm`) and imports and
 exports quietly become incompatible.
 
-Recommended keys — all optional, snake_case (see Casing and language):
+Recommended keys — all optional, snake_case (rule 9):
 
 | Key            | Value |
 |----------------|-------|
@@ -183,18 +195,3 @@ objects). Readers must not assume one encoding.
 All examples live in [`examples/`](examples/) (see
 [`examples/README.md`](examples/README.md) for what each file shows).
 
-## Casing and language
-
-The model's top-level fields are single lowercase English words (`title`,
-`status`, `id`, `notes`, `tasks`, `metadata`, `version`) — no compound
-words, so there is no casing to argue about. They are fixed, and a
-document must not rename or translate them.
-
-`metadata` is where everyone is free to choose: any keys, any casing, any
-language. That freedom is exactly why the recommended keys exist — they
-cross tool boundaries, get compared and guessed by other tools, and
-self-explanatory snake_case English terms are the one convention that
-keeps exports and imports compatible with everyone else. It is a
-preference, not a rule — tool-namespaced keys keep the tool's own casing
-and language (`linear.cycleId`), and readers should treat case variants
-of recommended keys as the same key rather than reject them.
