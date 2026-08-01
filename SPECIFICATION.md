@@ -82,11 +82,11 @@ types, so no tool is wrong for not knowing one.
 |------------|------------------------|----------|-------|
 | `title`    | string                 | yes      | The human-readable summary: the line on the paper. |
 | `status`   | `"open"` / `"done"`    | yes      | `open` or `done`. |
+| `version`  | string                 | no*      | The version the graph is modeled after. |
 | `id`       | string                 | yes*     | Identifier for formats that reference tasks by id. |
 | `notes`    | string                 | no       | Long-form text, plain or Markdown. |
 | `subtasks` | task[]                 | no       | Nested task objects or child-id references, per serialization. |
 | `metadata` | object                 | no       | Tool- or concern-specific data, keyed by tool or concern. |
-| `version`  | string                 | no*      | The version the graph is modeled after. |
 
 `yes*` means required under conditions; `no*` means optional but
 conditional — an asterisk always points at the rules.
