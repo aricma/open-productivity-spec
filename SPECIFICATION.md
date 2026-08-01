@@ -1,4 +1,7 @@
-# Open Productivity Specification (OPS) — Version 0 (Draft)
+# OPS Specifications
+
+This document is the **OPS Specifications**: the specification of the
+Open Productivity Standard (OPS).
 
 A minimal, tool-agnostic data structure for exchanging tasks between
 productivity tools. Any tool can export its tasks, any other tool can

@@ -1,4 +1,4 @@
-# Open Productivity Specification (OPS)
+# Open Productivity Standard (OPS)
 
 > An open, tool-agnostic data model for exchanging tasks between
 > productivity tools.
@@ -20,6 +20,7 @@ locked in.
 
 ## Read order
 
-1. [`SPECIFICATION.md`](SPECIFICATION.md) — the standard itself.
+1. [`SPECIFICATION.md`](SPECIFICATION.md) — the OPS Specifications: the
+   standard itself.
 2. [`examples/`](examples/) — the model in different serializations.
 3. [`CHANGELOG.md`](CHANGELOG.md) — the specification history.
