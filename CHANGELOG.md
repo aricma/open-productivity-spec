@@ -29,3 +29,7 @@ shape the spec and test the model before any tool depends on it.
   preference, not a rule.
 - Examples for every serialization: an empty export, a nested tree, the
   same tree in each mapping, and a multi-root forest.
+- Conformance fixtures in `tests/`: valid and invalid documents for the
+  nested and flat families, named by graph shape and expected depth.
+  Not part of the spec itself — they exist to help developers implement
+  a parser against the rules.
