@@ -1,0 +1,34 @@
+{
+  "version": "0",
+  "id": "export-root",
+  "title": "Acme product backlog",
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Fix memory leak in auth service",
+      "status": "open",
+      "tasks": [
+        {
+          "id": "t1r",
+          "title": "Reproduce the leak",
+          "metadata": { "priority": "high" }
+        },
+        {
+          "id": "t1a",
+          "title": "Ship the fix",
+          "status": "open",
+          "metadata": {
+            "priority": "high",
+            "linear": { "estimate": 3, "cycleId": "cycle_884" }
+          }
+        }
+      ],
+      "metadata": {
+        "priority": "high",
+        "dueDate": "2026-08-15",
+        "tags": ["infrastructure", "auth"],
+        "notion": { "pageId": "4a2b90ff-8b1a-4e1a-9b7a-2e2e1a0a1a1a" }
+      }
+    }
+  ]
+}

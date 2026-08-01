@@ -1,0 +1,8 @@
+id,title,status,notes,metadata,tasks
+,Work,,,,"[""t1""]"
+t1,Fix memory leak in auth service,open,,"{""priority"":""high"",""dueDate"":""2026-08-15"",""tags"":[""infrastructure"",""auth""],""notion"":{""pageId"":""4a2b90ff-8b1a-4e1a-9b7a-2e2e1a0a1a1a""}}","[""t1r"",""t1a""]"
+t1r,Reproduce the leak,,,"{""priority"":""high""}",
+t1a,Ship the fix,open,,"{""priority"":""high"",""linear"":{""estimate"":3,""cycleId"":""cycle_884""}}",
+,Personal,,,,"[""p1"",""p2""]"
+p1,Buy groceries,open,,,
+p2,Call dentist,done,,,

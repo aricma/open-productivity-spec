@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task version="0" title="Acme product backlog">
+  <task title="Fix memory leak in auth service" status="open">
+    <task title="Reproduce the leak">
+      <metadata priority="high" />
+    </task>
+    <task title="Ship the fix" status="open">
+      <metadata priority="high">
+        <linear>{"estimate":3,"cycleId":"cycle_884"}</linear>
+      </metadata>
+    </task>
+    <metadata priority="high" due_date="2026-08-15">
+      <tags>infrastructure, auth</tags>
+      <notion>{"pageId":"4a2b90ff-8b1a-4e1a-9b7a-2e2e1a0a1a1a"}</notion>
+    </metadata>
+  </task>
+</task>
