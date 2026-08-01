@@ -105,7 +105,7 @@ knowing one.
    effective version is the nearest `version` on the path to the root;
    if none exists, the latest version applies.
 7. **Empty export** — a root task with no tasks is a valid export,
-   whether it represents an empty export or a single standalone task,
+   whether it represents an empty export or a single standalone task —
    the structure is identical.
 8. **Attachments** — files are not a model field; they live in
    `metadata` under a self-explanatory key such as `attachments`, as
