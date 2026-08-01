@@ -1,6 +1,11 @@
 version: "0"
 id: export-root
 title: Acme product backlog
+status: open
+metadata:
+  created_at: "2026-01-01T09:00:00Z"
+  updated_at: "2026-07-31T18:00:00Z"
+  url: https://acme.example/backlog
 tasks:
   - id: t1
     title: Fix memory leak in auth service
@@ -8,19 +13,22 @@ tasks:
     tasks:
       - id: t1r
         title: Reproduce the leak
-        metadata:
-          priority: high
-      - id: t1a
-        title: Ship the fix
         status: open
         metadata:
           priority: high
-          linear:
-            estimate: 3
-            cycleId: cycle_884
+          location: Remote
+      - id: t1a
+        title: Ship the fix
+        status: done
+        metadata:
+          priority: high
+          estimates: 3
+          attachments: [notes/fix-auth.pdf]
+          completed_at: "2026-08-15T17:00:00Z"
     metadata:
       priority: high
-      dueDate: "2026-08-15"
+      start_date: "2026-07-01"
+      due_date: "2026-08-15"
       tags: [infrastructure, auth]
-      notion:
-        pageId: 4a2b90ff-8b1a-4e1a-9b7a-2e2e1a0a1a1a
+      status: In review
+      assignee: ada

@@ -17,18 +17,20 @@ pair adds a second tree.
 - Root task: `Acme product backlog` (`id: export-root`)
 - `t1` — Fix memory leak in auth service (open)
   - `t1r` — Reproduce the leak (leaf; carries only `metadata`)
-  - `t1a` — Ship the fix (open; carries `linear` metadata)
-- `metadata` on `t1` mixes generic keys (`priority`, `dueDate`, `tags`)
-  and a tool key (`notion`)
+  - `t1a` — Ship the fix (done; carries `metadata`)
+- `metadata` showcases every recommended key from the Common metadata
+  chapter, spread across the tree: root `created_at`/`updated_at`/`url`,
+  `t1` `priority`/`start_date`/`due_date`/`tags`/`status`/`assignee`,
+  `t1r` `location`, `t1a` `estimates`/`attachments`/`completed_at`
 
 ## File by file
 
 ### `empty.json`
 
-The minimal valid export: a root task with only `version` and `title`.
-Demonstrates rule 8 — a root task with no `tasks` is a valid export
-whether it stands for an empty export or a single task — and that the root
-needs no `id`.
+The minimal valid export: a root task with only `version`, `title`, and
+`status`. Demonstrates rule 7 — a root task with no `tasks` is a valid
+export whether it stands for an empty export or a single task — and that
+the root needs no `id`.
 
 ### `tree.json`
 
@@ -37,13 +39,14 @@ nested in `tasks`. Demonstrates:
 
 - root with `version` and an `id` it doesn't need (ids are optional in
   tree serializations)
-- a leaf child (`t1r`) that carries no `status` and no `tasks`
-- nested `metadata` (task-level `linear`, parent-level `notion`)
+- a leaf child (`t1r`) whose only data is `title`, `status`, and a
+  little `metadata`
+- `metadata` on more than one level (leaf and parent)
 
 ### `yaml.yaml`
 
 The same document in YAML. Nesting is expressed by indentation, not
-brackets; the mapping is otherwise identical to JSON. Note `dueDate` is
+brackets; the mapping is otherwise identical to JSON. Note `due_date` is
 quoted so it stays a string instead of parsing as a YAML date.
 
 ### `jsonl.jsonl`
@@ -64,9 +67,10 @@ rows carry ids and list their children's ids in `tasks`.
 
 ### `markdown.md`
 
-Frontmatter carries `version`; the `#` heading renders the root `title`
-and the leading paragraph its `notes`. The tree is a nested checkbox list:
-`[ ]` = `open`, `[x]` = `done` ("Ship the fix" is `[x]` here to show it).
+Frontmatter carries `version`, the root's `status`, and the root's
+`metadata`; the `#` heading
+renders the root `title` and the leading paragraph its `notes`. The tree
+is a nested checkbox list: `[ ]` = `open`, `[x]` = `done`.
 Per-task `metadata` is preserved in hidden HTML comments so round-trips
 stay lossless.
 
@@ -76,8 +80,7 @@ Tree-preserving like JSON: a `<task>` element per node, children as
 nested `<task>` elements. No ids anywhere — the nested form doesn't need
 them. `metadata` uses attributes for simple values (`priority`, `due_date`)
 and child elements for complex ones — comma-separated for lists like
-`tags`, JSON text for objects like `notion` and `linear` — so nothing is
-lost without a single JSON blob.
+`tags` — so nothing is lost without a single JSON blob.
 
 ### `xml-flat.xml`
 
