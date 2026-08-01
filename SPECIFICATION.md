@@ -50,7 +50,7 @@ This enables us to get three things:
 
 - **Interoperability** — one open task structure that any productivity
   tool can export and import, so tasks travel between tools without
-  losing structure, priorities, or notes. Keep `metadata` around even
+  losing title, status, notes, or hierarchy. Keep `metadata` around even
   when you don't understand it, and use self-explanatory keys
   (`due_date`, `status`, `priority`, `estimates`, `location`,
   `attachments`) so the next tool can guess their meaning. The model is
@@ -158,7 +158,7 @@ Recommended keys for the most common task attributes in the wild:
 | `status`       | the platform's original status (e.g. "In review") — distinct from the model's `status` field |
 | `estimates`    | number or string (tool units differ) |
 | `location`     | string |
-| `assignee`     | string (name or id) |
+| `assignee`     | string naming a team member (name, id, or email) |
 | `attachments`  | list of paths — relative to the export, or global (a URL, a path on the machine) |
 | `created_at`   | ISO 8601 timestamp |
 | `updated_at`   | ISO 8601 timestamp |
