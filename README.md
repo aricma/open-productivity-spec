@@ -18,24 +18,8 @@ locked in.
 [ Jira ]    ──┘                               └──> [ Anything ]
 ```
 
-## Repository layout
-
-```text
-ops/
-├── README.md           # This file — overview
-├── SPECIFICATION.md    # The standard: task data model, rules, serializations
-├── CHANGELOG.md        # What changed, per draft
-├── LICENSE             # MIT — the spec is free to use, implement, and fork
-└── examples/           # Some valid examples per serialization mapping
-                        # (see examples/README.md)
-```
-
 ## Read order
 
 1. [`SPECIFICATION.md`](SPECIFICATION.md) — the standard itself.
-2. [`examples/`](examples/) — the model in each serialization.
-3. [`CHANGELOG.md`](CHANGELOG.md) — the draft history.
-
-## License
-
-[MIT](LICENSE).
+2. [`examples/`](examples/) — the model in different serializations.
+3. [`CHANGELOG.md`](CHANGELOG.md) — the specification history.
