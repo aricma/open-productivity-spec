@@ -8,8 +8,8 @@
       "status": "open",
       "subtasks": [
         {
-          "version": "2",
-          "title": "Leaf on a much newer version",
+          "version": "0",
+          "title": "Subtasks cannot carry a version",
           "status": "done"
         }
       ]

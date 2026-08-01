@@ -4,8 +4,8 @@
   "status": "open",
   "subtasks": [
     {
-      "version": "1",
-      "title": "Subtree moved to a newer version",
+      "version": "0",
+      "title": "Subtasks cannot carry a version",
       "status": "open"
     }
   ]
