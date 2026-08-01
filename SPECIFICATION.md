@@ -109,7 +109,9 @@ knowing one.
    the structure is identical.
 8. **Attachments** — files are not a model field; they live in
    `metadata` under a self-explanatory key such as `attachments`, as
-   paths relative to the export. An export that carries files should be
+   paths — relative to the export when the files travel with the data
+   (the ZIP case), or global (a URL for remote files, a path on the
+   machine). An export that carries files should be
    packaged as a ZIP holding the task data and the files together, so a
    receiving tool can re-upload them and reconnect the paths. Attachments
    are a use case, not the norm: a tool that receives a graph whose
