@@ -124,11 +124,7 @@ knowing one.
    any keys, casing, or language, and readers must accept it all — but
    written strictly: keys a tool writes must match `^[a-z0-9_]{3,}$`
    (lowercase letters, digits, and underscores, at least three
-   characters; no dots, dashes, camelCase, or other scripts). The
-   recommended keys in the Metadata chapter follow this; tool-specific
-   keys namespace by tool name — as a nested object under the tool's
-   key (`linear`, `notion`) or as an underscore-prefixed key
-   (`linear_cycle_id`) — never as dotted namespaces (`linear.cycleId`).
+   characters; no dots, dashes, camelCase, or other scripts).
 
 ## Metadata
 
@@ -212,8 +208,7 @@ apply to whatever formats a tool claims to support.
 
 - Must output only valid documents following the OPS Specifications.
 - Must write only data following a released OPS version.
-- Must write metadata keys per rule 9: `^[a-z0-9_]{3,}$`, tool names
-  as underscore prefixes.
+- Must write metadata keys per rule 9: `^[a-z0-9_]{3,}$`.
 
 **OPS Transformer** — imports and exports (converters, sync tools,
 round-trippers).
