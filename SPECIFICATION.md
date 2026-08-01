@@ -137,7 +137,7 @@ Recommended keys — all optional, snake_case (see Casing and language):
 | `estimates`    | number or string (tool units differ) |
 | `location`     | string |
 | `assignee`     | string (name or id) |
-| `attachments`  | list of paths relative to the export |
+| `attachments`  | list of paths — relative to the export, or global (a URL, a path on the machine) |
 | `created_at`   | ISO 8601 timestamp |
 | `updated_at`   | ISO 8601 timestamp |
 | `completed_at` | ISO 8601 timestamp |
