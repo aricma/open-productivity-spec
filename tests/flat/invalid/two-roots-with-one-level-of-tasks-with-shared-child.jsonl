@@ -1,0 +1,3 @@
+{"title":"Work","status":"open","tasks":["t1"]}
+{"title":"Personal","status":"open","tasks":["t1"]}
+{"id":"t1","title":"Shared between roots","status":"open"}

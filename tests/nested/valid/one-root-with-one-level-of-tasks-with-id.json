@@ -1,0 +1,11 @@
+{
+  "id": "r1",
+  "title": "Work",
+  "status": "open",
+  "tasks": [
+    {
+      "title": "Child",
+      "status": "done"
+    }
+  ]
+}

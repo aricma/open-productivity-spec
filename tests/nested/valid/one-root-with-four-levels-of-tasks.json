@@ -1,0 +1,28 @@
+{
+  "title": "Level 1",
+  "status": "open",
+  "tasks": [
+    {
+      "title": "Level 2",
+      "status": "open",
+      "tasks": [
+        {
+          "title": "Level 3",
+          "status": "open",
+          "tasks": [
+            {
+              "title": "Level 4",
+              "status": "open",
+              "tasks": [
+                {
+                  "title": "Level 5",
+                  "status": "done"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

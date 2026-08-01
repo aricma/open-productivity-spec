@@ -1,0 +1,12 @@
+{
+  "version": "0",
+  "title": "Work",
+  "status": "open",
+  "tasks": [
+    {
+      "version": "1",
+      "title": "Subtree moved to a newer version",
+      "status": "open"
+    }
+  ]
+}

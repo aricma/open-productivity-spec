@@ -1,0 +1,18 @@
+{
+  "version": "0",
+  "title": "Work",
+  "status": "open",
+  "tasks": [
+    {
+      "title": "Level 2",
+      "status": "open",
+      "tasks": [
+        {
+          "version": "2",
+          "title": "Leaf on a much newer version",
+          "status": "done"
+        }
+      ]
+    }
+  ]
+}
