@@ -97,7 +97,8 @@ knowing one.
 5. **`metadata` is the escape hatch** — the only place for data outside
    the model: due dates, tags, timestamps, priority, estimates, custom
    properties, platform statuses. Anything the model doesn't cover goes
-   in `metadata` (prefer the recommended keys in the Metadata chapter);
+   in `metadata` (prefer the recommended keys in the Common metadata
+   chapter);
    never invent new top-level fields — that would reinvent the model, and
    model changes belong in this spec, not in documents.
 6. **`version` resolution** — optional on any task. It applies to that
@@ -126,16 +127,19 @@ knowing one.
    (lowercase letters, digits, and underscores, at least three
    characters; no dots, dashes, camelCase, or other scripts).
 
-## Metadata
+## Common metadata
 
-`metadata` is open — anyone may add keys. But the point of a
-shared standard is that the keys are shared too: where a concept is
-common, use the recommended keys below instead of inventing a tool- or
-company-specific namespace. Otherwise every tool spells the same thing
-differently (`dueDate`, `due_date`, `dd`, `fälligAm`) and imports and
-exports quietly become incompatible.
+`metadata` is open — anyone may add keys. We recommend keeping them
+flat and within the character set of rule 9: it keeps the metadata
+simple, self-explanatory, and readable.
+The specifications define a task with very few required fields. This
+allows us to keep the interaction with the data simple, fast, and
+direct. However, many productivity tools already have a long list of
+other information that they track. To support these and to make tool
+interoperability simple, we want to give a few suggestions for common
+attributes and how to spell them.
 
-Recommended keys — all optional, snake_case (rule 9):
+Recommended keys for the most common task attributes in the wild:
 
 | Key            | Value |
 |----------------|-------|
@@ -153,12 +157,8 @@ Recommended keys — all optional, snake_case (rule 9):
 | `completed_at` | ISO 8601 timestamp |
 | `url`          | string, link to the task in its source tool |
 
-Use the exact spellings above, not close variants — a reader that
-recognizes a recommended key can act on it; an unrecognized one is opaque.
-Tool-specific keys are welcome, but namespace them by tool name (e.g.
-`linear`, `notion`) so they never collide with generic keys. Keys like
-`type`, `_type`, or `kind` carry role hints for the heuristics described
-in the design goals.
+If teams follow the convention of using these attributes, parsing
+tasks across tools will already be much simpler.
 
 ## Serializations
 
