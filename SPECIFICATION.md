@@ -195,3 +195,42 @@ objects). Readers must not assume one encoding.
 All examples live in [`examples/`](examples/) (see
 [`examples/README.md`](examples/README.md) for what each file shows).
 
+## Conformance
+
+How can software claim OPS conformance? In the following, we look at
+what a reader, writer, and transformer must do. The obligations below
+apply to whatever formats a tool claims to support.
+
+**OPS Reader** — imports OPS documents.
+
+- Must accept every valid document in its claimed formats (rules 1–9).
+- Must not fail on or strip unknown metadata — including keys that
+  break rule 9's charset.
+- Must reject a document for an unknown `version`.
+
+**OPS Writer** — exports OPS documents.
+
+- Must output only valid documents following the OPS Specifications.
+- Must write only data following a released OPS version.
+- Must write metadata keys per rule 9: `^[a-z0-9_]{3,}$`, tool names
+  as underscore prefixes.
+
+**OPS Transformer** — imports and exports (converters, sync tools,
+round-trippers).
+
+- Everything the Reader and Writer must do.
+- Must preserve the graph: the same tasks with the same titles, notes,
+  statuses, hierarchy, and ids where the format carries them.
+- Must preserve `metadata` verbatim across import → export cycles — keys
+  and values, understood or not. Normalizing, translating, or cleaning
+  up unrecognized metadata is a loss, and lossless round-trips are the
+  point of the standard.
+
+Conformance never means understanding metadata. No tool is required to
+know what another tool's metadata means, to handle attachments (rule 8),
+or to support every serialization — only to carry metadata along,
+unmodified.
+
+The fixtures in [`tests/`](tests/) express rules 1–9 as concrete valid
+and invalid documents, one per rule and shape; they are the working
+definition of "valid" for implementers.
