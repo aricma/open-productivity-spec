@@ -21,7 +21,7 @@ locked in.
 ## Repository layout
 
 ```text
-todo-specs/
+ops/
 ├── README.md           # This file — overview
 ├── SPECIFICATION.md    # The standard: task data model, rules, serializations
 ├── CHANGELOG.md        # What changed, per draft
