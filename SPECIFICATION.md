@@ -1,3 +1,10 @@
+---
+status: draft
+version: "0"
+date: 2026-08-01
+author: Adrian Mindak (aricma) <adrian@aricma.org>
+---
+
 # OPS Specifications
 
 This document is the **OPS Specifications**: the specification of the
