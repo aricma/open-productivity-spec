@@ -1,19 +1,19 @@
 {
   "title": "Level 1",
   "status": "open",
-  "tasks": [
+  "subtasks": [
     {
       "title": "Level 2",
       "status": "open",
-      "tasks": [
+      "subtasks": [
         {
           "title": "Level 3",
           "status": "open",
-          "tasks": [
+          "subtasks": [
             {
               "title": "Level 4",
               "status": "open",
-              "tasks": [
+              "subtasks": [
                 {
                   "title": "Level 5",
                   "status": "done"

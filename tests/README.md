@@ -7,9 +7,9 @@ reject. Write your parser against these states, not against guesswork.
 Two families, mirroring the serializations chapter:
 
 - [`nested/`](nested/) — tree-preserving formats (canonical JSON):
-  hierarchy via nested `tasks` objects.
+  hierarchy via nested `subtasks` objects.
 - [`flat/`](flat/) — flat, streamable formats (canonical JSONL):
-  hierarchy via child-id lists in `tasks`.
+  hierarchy via child-id lists in `subtasks`.
 
 Each family has:
 

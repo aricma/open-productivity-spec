@@ -2,7 +2,7 @@
   "version": "0",
   "title": "Work",
   "status": "open",
-  "tasks": [
+  "subtasks": [
     {
       "version": "1",
       "title": "Subtree moved to a newer version",

@@ -7,12 +7,12 @@
     "updated_at": "2026-07-31T18:00:00Z",
     "url": "https://acme.example/backlog"
   },
-  "tasks": [
+  "subtasks": [
     {
       "id": "t1",
       "title": "Fix memory leak in auth service",
       "status": "open",
-      "tasks": [
+      "subtasks": [
         {
           "id": "t1r",
           "title": "Reproduce the leak",

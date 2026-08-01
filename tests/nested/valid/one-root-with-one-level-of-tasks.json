@@ -1,7 +1,7 @@
 {
   "title": "Work",
   "status": "open",
-  "tasks": [
+  "subtasks": [
     {
       "id": "t1",
       "title": "Child",

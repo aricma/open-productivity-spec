@@ -28,14 +28,14 @@ pair adds a second tree.
 ### `empty.json`
 
 The minimal valid export: a root task with only `version`, `title`, and
-`status`. Demonstrates rule 7 — a root task with no `tasks` is a valid
+`status`. Demonstrates rule 7 — a root task with no `subtasks` is a valid
 export whether it stands for an empty export or a single task — and that
 the root needs no `id`.
 
 ### `tree.json`
 
 Canonical JSON, the reference form: one task object per node, children
-nested in `tasks`. Demonstrates:
+nested in `subtasks`. Demonstrates:
 
 - root with `version` and an `id` it doesn't need (ids are optional in
   tree serializations)
@@ -52,18 +52,18 @@ quoted so it stays a string instead of parsing as a YAML date.
 ### `jsonl.jsonl`
 
 The tree linearized: one task per line, one line per record. The root has
-no `id` and its `tasks` lists the ids of its children; every child record
+no `id` and its `subtasks` lists the ids of its children; every child record
 carries its own `id` and lists its own children the same way. A streaming
 format — a consumer processes records line by line and rebuilds the tree
 by resolving the id lists, no parent references needed.
 
 ### `csv.csv`
 
-The tree as rows. Columns: `id,title,status,notes,metadata,tasks`.
-`metadata` and `tasks` are JSON-encoded inside their columns (hence the
+The tree as rows. Columns: `id,title,status,notes,metadata,subtasks`.
+`metadata` and `subtasks` are JSON-encoded inside their columns (hence the
 doubled quotes). Empty cells mean the field is absent, not an empty
 string. Resolution works exactly like JSONL: roots have no `id`; child
-rows carry ids and list their children's ids in `tasks`.
+rows carry ids and list their children's ids in `subtasks`.
 
 ### `markdown.md`
 
@@ -84,15 +84,15 @@ and child elements for complex ones — comma-separated for lists like
 
 ### `xml-flat.xml`
 
-The same tree as a flat list: all tasks sit under `<tasks>`, children are
-referenced by id via a `tasks` attribute (space-separated, like the
+The same tree as a flat list: all tasks sit under `<subtasks>`, children are
+referenced by id via a `subtasks` attribute (space-separated, like the
 JSONL/CSV id lists), and the root carries no id. Metadata uses the same
 attribute style as `xml.xml`.
 
 ### `multi-root.jsonl` / `multi-root.csv`
 
 Two root tasks in one file — "Work" and "Personal" — a forest. Both roots
-carry no `id`; each lists its children's ids in `tasks`. No task is shared
+carry no `id`; each lists its children's ids in `subtasks`. No task is shared
 between trees: every task has exactly one parent in the whole file, and
 ids are unique across it. This is how a flat export of several lists (or
 several tools' data merged) can be streamed as one file.

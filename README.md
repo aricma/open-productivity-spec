@@ -45,14 +45,14 @@ rewriting them for every platform.
 
 A task needs only a **title** and a **status** — a line on paper and a
 checkmark. Everything else is optional `metadata`, carried verbatim so
-exports stay lossless. Subtasks nest in `tasks`.
+exports stay lossless. Hierarchy lives in `subtasks`.
 
 ```json
 {
   "title": "Ship the OPS spec",
   "status": "open",
   "metadata": { "due_date": "2026-08-15", "priority": "high" },
-  "tasks": [
+  "subtasks": [
     { "title": "Write the README", "status": "done" },
     { "title": "Publish it", "status": "open" }
   ]
@@ -72,7 +72,7 @@ CSV. One task per line, processed one record at a time, constant
 memory. Hierarchy is expressed as child id lists instead of nesting:
 
 ```jsonl
-{"title": "Ship the OPS spec", "status": "open", "tasks": ["t1r", "t1a"], "metadata": {"due_date": "2026-08-15"}}
+{"title": "Ship the OPS spec", "status": "open", "subtasks": ["t1r", "t1a"], "metadata": {"due_date": "2026-08-15"}}
 {"id": "t1r", "title": "Write the README", "status": "done"}
 {"id": "t1a", "title": "Publish it", "status": "open"}
 ```
@@ -86,7 +86,7 @@ resolving the id lists — no parent references needed.
 | Aspect     | Nested (tree-preserving)        | Flat (streamable)                    |
 |------------|---------------------------------|--------------------------------------|
 | Formats    | JSON, YAML, Markdown, XML       | JSONL, CSV                           |
-| Hierarchy  | `tasks` holds nested objects    | `tasks` holds child ids              |
+| Hierarchy  | `subtasks` holds nested objects  | `subtasks` holds child ids       |
 | IDs        | optional                        | needed per referenced child; roots carry none |
 | Memory     | whole tree in memory            | one record at a time                 |
 | Best for   | trees traversals                | large exports, logs, pipe processing |

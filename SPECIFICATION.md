@@ -17,7 +17,7 @@ in `metadata`, so nothing is lost in transit.
 
 ## The model
 
-One type: a **task**. A task may contain other tasks in `tasks`, nested
+One type: a **task**. A task may contain other tasks in `subtasks`, nested
 arbitrarily deep. An export is one or more root tasks; every task descends
 from exactly one root. There are no other concepts — no epics, features,
 backlog items, or lists. What a platform called the task is carried in
@@ -82,7 +82,7 @@ knowing one.
 | `status`   | `"open"` / `"done"`    | yes      | `open` or `done`. |
 | `id`       | string                 | no*      | Identifier for formats that reference tasks by id. |
 | `notes`    | string                 | no       | Long-form text, plain or Markdown. |
-| `tasks`    | task[]                 | no       | Nested task objects or child-id references, per serialization. |
+| `subtasks` | task[]                 | no       | Nested task objects or child-id references, per serialization. |
 | `metadata` | object                 | no       | Tool- or concern-specific data, keyed by tool or concern. |
 | `version`  | string                 | no       | The standard version a task or subtree uses. |
 
@@ -92,14 +92,14 @@ knowing one.
 
 1. **Required fields** — `title` and `status` appear on every task.
 2. **`id` and uniqueness** — ids are only needed when a format
-   references tasks by id (the flat serializations, where `tasks` holds
-   child ids): then every task except roots carries a unique id, unique
+   references tasks by id (the flat serializations, where `subtasks`
+   holds child ids): then every task except roots carries a unique id, unique
    across the whole graph. Nested serializations never need ids. Roots
    never need an id in any format, though one may be attached anyway.
 3. **`status` values** — only `open` or `done`. Anything richer (in
    progress, backlog, "done by definition") is platform metadata: store
    it in `metadata`.
-4. **`tasks` define hierarchy** — a task belongs to exactly one parent,
+4. **`subtasks` define hierarchy** — a task belongs to exactly one parent,
    across the whole export. Tasks are never shared between roots — a
    task exists in exactly one place. Cycles are impossible.
 5. **`metadata` is the escape hatch** — the only place for data outside
@@ -113,7 +113,7 @@ knowing one.
    task and its whole subtree unless a deeper task overrides. A task's
    effective version is the nearest `version` on the path to the root;
    if none exists, the latest version applies.
-7. **Empty export** — a root task with no tasks is a valid export,
+7. **Empty export** — a root task with no subtasks is a valid export,
    whether it represents an empty export or a single standalone task —
    the structure is identical.
 8. **Attachments** — files are not a model field; they live in
@@ -177,18 +177,18 @@ welcome.
 
 Formats fall into two families, and the use case decides which to pick:
 
-- **Tree-preserving** — JSON, YAML, Markdown, XML. `tasks` holds nested
-  task objects, so the graph structure is explicit and recursive
+- **Tree-preserving** — JSON, YAML, Markdown, XML. `subtasks` holds
+  nested task objects, so the graph structure is explicit and recursive
   traversal is straightforward. Best when the whole tree lives in memory
   anyway.
-- **Flat and streamable** — JSONL, CSV. `tasks` holds child ids and each
-  record appears on its own line/row, so a processor handles one record
+- **Flat and streamable** — JSONL, CSV. `subtasks` holds child ids and
+  each record appears on its own line/row, so a processor handles one record
   at a time and rebuilds the graph by resolving id lists. Best for large
   exports, logs, and pipe-style processing — not every format is
   data-transfer efficient, and these exist to be.
 
 Some formats can play both roles: XML nests children as `<task>`
-elements, or lists them flat with child ids in a `tasks` attribute — the
+elements, or lists them flat with child ids in a `subtasks` attribute — the
 nested form needs no ids at all.
 
 How `metadata` is encoded is per-format and must not be assumed: simple

@@ -2,11 +2,11 @@
   "version": "0",
   "title": "Work",
   "status": "open",
-  "tasks": [
+  "subtasks": [
     {
       "title": "Level 2",
       "status": "open",
-      "tasks": [
+      "subtasks": [
         {
           "version": "2",
           "title": "Leaf on a much newer version",
