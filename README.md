@@ -1,4 +1,4 @@
-# Productivity Standard — Specification
+# Open Productivity Specification (OPS)
 
 > An open, tool-agnostic data model for exchanging tasks between
 > productivity tools.

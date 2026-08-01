@@ -1,4 +1,4 @@
-# Productivity Standard — Version 0 (Draft)
+# Open Productivity Specification (OPS) — Version 0 (Draft)
 
 A minimal, tool-agnostic data structure for exchanging tasks between
 productivity tools. Any tool can export its tasks, any other tool can
