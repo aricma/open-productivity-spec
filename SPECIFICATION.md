@@ -46,17 +46,25 @@ differently. Rather than standardize each one (and either lose the
 differences or argue forever about what "high priority" means), the
 standard keeps them in `metadata`, preserved verbatim.
 
-This buys two things:
+This enables us to get three things:
 
-- **Lossless round-trips.** Exporting and re-importing into the same tool
-  should lose nothing. Across different tools, some loss may be
-  unavoidable — but aim for none: keep `metadata` around even when you
-  don't understand it, and use self-explanatory keys (`due_date`,
-  `status`, `priority`, `estimates`, `location`, `attachments`) so the
-  next tool can guess their meaning.
-- **The model stays the intersection, not the union.** As tools gain
-  features, the standard doesn't have to grow. New concepts arrive as
-  metadata, not as new top-level fields.
+- **Interoperability** — one open task structure that any productivity
+  tool can export and import, so tasks travel between tools without
+  losing structure, priorities, or notes. Keep `metadata` around even
+  when you don't understand it, and use self-explanatory keys
+  (`due_date`, `status`, `priority`, `estimates`, `location`,
+  `attachments`) so the next tool can guess their meaning. The model is
+  the intersection of what tools share, not the union: new concepts
+  arrive as metadata, never as new top-level fields.
+- **Abstraction** — the structure is open and stable, so tools can
+  expose their tasks through OPS-based APIs, and automations and
+  analysis are written once against the OPS shape and work across every
+  OPS-capable tool, instead of being re-implemented per platform.
+- **Ownership** — your productivity data stays yours. Exports are
+  lossless: re-importing into the same tool should lose nothing, across
+  tools the aim is none either — unknown details ride along in
+  `metadata` instead of being dropped, so nothing stops you from
+  leaving or returning to a tool when you want to.
 
 Hierarchy is a reading of the graph, not a type. What a platform calls a
 task — epic, feature, PBI, story — can be derived from a task's position in
